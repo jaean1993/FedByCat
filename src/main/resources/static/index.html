@@ -3,9 +3,33 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body>
 <p>Get your greeting <a href="/greeting">here</a></p>
+<div>
+    <form action="/sighup" method="post">
+        <div>
+            <input type="text" id="username" class="form-control" placeholder="username" name="username">
+        </div>
+        <br>
+        <div>
+            <input type="text" id="password" class="form-control" placeholder="password" name="password">
+        </div>
+        <br>
+        <div>
+            <label class="radio-inline"><input  type="radio" value=0 name="gender" required>Male</label>
+            <label class="radio-inline"><input  type="radio" value=1 name="gender">Female</label>
+        </div>
+        <br>
+        <div>
+            <input type="text" id="email" class="form-control" placeholder="email" name="email">
+        </div>
+        <br>
+        <input class="btn btn-primary" type="submit" value="submit">&nbsp&nbsp&nbsp<input class="btn btn-danger" type="reset" value="reset">
+    </form>
+</div>
 </body>
 </html>

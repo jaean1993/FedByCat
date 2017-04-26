@@ -18,11 +18,16 @@ public class FedByCatApiResult {
 
     private static final Logger log = Logger.getLogger(FedByCatApiResult.class);
 
+    private static Gson gson = new GsonBuilder().serializeNulls().create();
+
     private int code;
 
     private String msg;
 
     private Object result;
+
+    public FedByCatApiResult() {
+    }
 
     public FedByCatApiResult(int code, String msg, Object result) {
         this.code = code;
@@ -72,6 +77,20 @@ public class FedByCatApiResult {
         }
     }
 
+    public static void writeResponseFail(HttpServletRequest request, HttpServletResponse response, Object output) throws IOException {
+
+        FedByCatApiResult res = new FedByCatApiResult(1, "fail", output);
+        writeResponse(request, response, gson.toJson(res));
+    }
+
+    public static void writeResponseException(HttpServletRequest request, HttpServletResponse response, Exception e) {
+        try {
+            writeResponseFail(request, response, e);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
     public static void writeResponseOk(HttpServletRequest request, HttpServletResponse response, Object output) throws IOException {
         writeResponse(request, response, successForObj(output));
     }
@@ -85,12 +104,10 @@ public class FedByCatApiResult {
             res.add("result", (JsonElement) output);
             return res.toString();
         } else {
-            Gson gson = new GsonBuilder().serializeNulls().create();
             FedByCatApiResult res = new FedByCatApiResult(0, "success", output);
             return gson.toJson(res);
         }
 
     }
 
-    private static String
 }

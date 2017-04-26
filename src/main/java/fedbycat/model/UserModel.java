@@ -52,14 +52,14 @@ public class UserModel {
     /**
      * time when user was created
      */
-    private String gmtCreate;
+    private long gmtCreate;
 
     /**
      * if the account is active now
      */
     private boolean active;
 
-    public UserModel(String userName, String password, int gender, String email, long gmtSend, String receiveHistory, String gmtCreate, boolean active) {
+    public UserModel(String userName, String password, int gender, String email, long gmtSend, String receiveHistory, long gmtCreate, boolean active) {
         this.userName = userName;
         this.password = password;
         this.gender = gender;
@@ -102,11 +102,11 @@ public class UserModel {
         this.active = active;
     }
 
-    public String getGmtCreate() {
+    public long getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(String gmtCreate) {
+    public void setGmtCreate(long gmtCreate) {
         this.gmtCreate = gmtCreate;
     }
 

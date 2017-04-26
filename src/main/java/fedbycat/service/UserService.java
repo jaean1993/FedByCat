@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * create or update account
+     * update account
      *
      * @title putUser
      * @param userModel
