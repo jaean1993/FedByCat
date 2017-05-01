@@ -29,7 +29,7 @@ public class ScheduledTasks {
     @Autowired
     ImgService imgService;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 5000000)
     public void checkLastSentTime() {
         List<UserModel> userModelList = userService.queryUserByTime(System.currentTimeMillis());
         for (UserModel um: userModelList) {

@@ -1,35 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Give me a cat</title>
+
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+
 </head>
 <body>
-<p>Get your greeting <a href="/greeting">here</a></p>
-<div>
-    <form action="/sighup" method="post">
-        <div>
-            <input type="text" id="username" class="form-control" placeholder="username" name="username">
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand" style="font-family: fantasy; color: #eabf39; margin-left: -180px; font-size: 40px">Give Me a Cat</h3>
+                    <nav>
+                        <ul class="nav masthead-nav" style="margin-right: -150px;">
+                            <li class="active"><a href="/" style="color: #ffe6b5">Home</a></li>
+                            <li><a href="https://www.linkedin.com/in/jin-an-5b7b1a99/" style="color: #ffe6b5">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div id="intro" class="inner cover" style="margin-bottom: 100px">
+                <h1 class="cover-heading" style="color: #e09620; font-family: fantasy;">Get a cat pic every day.</h1>
+                <p class="lead" style="color: #e09620">Sign up with your email address and you will receive a picture of cute cat everyday. Remember to provide your feedback to us about the picture!</p>
+                <p class="lead">
+                    <button type="button" class="btn btn-lg btn-default">Subscribe</button>
+                </p>
+            </div>
+            <div id="subscribe" style="display:none">
+                <form id="register" action="" method="post">
+                    <div>
+                        <input type="text" id="username" class="form-control" placeholder="username" name="username">
+                    </div>
+                    <br>
+                    <div>
+                        <input type="password" id="password" class="form-control" placeholder="password" name="password">
+                    </div>
+                    <br>
+                    <div>
+                        <input type="password" id="cfm_password" class="form-control" placeholder="confirm password" name="cfm_password">
+                    </div>
+                    <br>
+                    <div style="text-align: left; color: #fffed7;">
+                        <label class="radio-inline"><input  type="radio" value=0 name="gender" required>Male</label>
+                        <label class="radio-inline"><input  type="radio" value=1 name="gender">Female</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="email" id="email" class="form-control" placeholder="email" name="email">
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" id="submit">submit</button>&nbsp&nbsp&nbsp<input class="btn btn-danger" type="reset" value="reset">
+                </form>
+            </div>
+            <div id = "response" style="display:none">
+                <h1 id="result" class="cover-heading" style="color: #e09620; font-family: fantasy;">Success!</h1>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p style="color:#b57623">Website by <a href="https://www.linkedin.com/in/jin-an-5b7b1a99/" style="color:#fffed7">@Jin An</a>.</p>
+                </div>
+            </div>
+
         </div>
-        <br>
-        <div>
-            <input type="text" id="password" class="form-control" placeholder="password" name="password">
-        </div>
-        <br>
-        <div>
-            <label class="radio-inline"><input  type="radio" value=0 name="gender" required>Male</label>
-            <label class="radio-inline"><input  type="radio" value=1 name="gender">Female</label>
-        </div>
-        <br>
-        <div>
-            <input type="text" id="email" class="form-control" placeholder="email" name="email">
-        </div>
-        <br>
-        <input class="btn btn-primary" type="submit" value="submit">&nbsp&nbsp&nbsp<input class="btn btn-danger" type="reset" value="reset">
-    </form>
+
+    </div>
+
 </div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src = "https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+<script type="text/javascript">
+    $.validator.messages.required = 'Required';
+    $(document).ready(function() {
+        $("button").click(function(){
+            $("div#intro").fadeOut(300);
+            $("div#subscribe").delay(300).fadeIn(1700);
+        });
+
+        $('form#register').validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength:5
+                },
+                password: {
+                    required: true,
+                    minlength:6
+                },
+                cfm_password: {
+                    required: true,
+                    minlength:6,
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            }
+
+        });
+
+        $("button#submit").click(function() {
+            $.ajax({
+                url: '/signup',
+                type: 'post',
+                dataType: 'json',
+                data: $('form#register').serialize(),
+                success: function(data) {
+                    $("div#subscribe").fadeOut(300);
+                    $("div#response").delay(300).fadeIn(300);
+                },
+                error: function(data) {
+                    $("div#subscribe").fadeOut(300);
+                    $("h1#result").text('Fail');
+                    $("div#response").delay(300).fadeIn(300);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

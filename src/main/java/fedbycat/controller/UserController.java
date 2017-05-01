@@ -32,11 +32,11 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(path = "/sighup", method = RequestMethod.POST)
+    @RequestMapping(path = "/signup", method = RequestMethod.POST)
 
-    public void sighUp(@RequestParam String username, @RequestParam String password, @RequestParam int gender, @RequestParam String email, HttpServletRequest request, HttpServletResponse response) {
+    public void sighUp(@RequestParam String username, @RequestParam String password, @RequestParam String cfm_password, @RequestParam int gender, @RequestParam String email, HttpServletRequest request, HttpServletResponse response) {
 
-        String res = validate(username, password, gender, email);
+        String res = validate(username, password, cfm_password, gender, email);
         UserModel userModel = new UserModel(username, password, gender, email, System.currentTimeMillis(), "", System.currentTimeMillis(), true);
         try {
             if (!res.equals("success") || !userService.putUser(userModel)) {
@@ -50,18 +50,21 @@ public class UserController {
 
     }
 
-    private String validate(String userName, String password, int gender, String email) {
+    private String validate(String userName, String password, String cfmPassword, int gender, String email) {
         if (!validateEmail(email)) {
-            return "invalid email address";
+            return "Invalid email address";
+        }
+        if (!password.equals(cfmPassword)) {
+            return "Not same password";
         }
         if (!validateUserName(userName)) {
-            return "invalid user name";
+            return "Invalid user name";
         }
         if (!validGender(gender)) {
-            return "invalid gender";
+            return "Invalid gender";
         }
         if (!(validPassword(password))) {
-            return "invalid password";
+            return "Invalid password";
         }
         return "success";
     }

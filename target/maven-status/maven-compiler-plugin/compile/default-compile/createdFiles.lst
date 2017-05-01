@@ -4,6 +4,7 @@ fedbycat/service/impl/EmailServiceImpl.class
 fedbycat/controller/UserController.class
 fedbycat/model/UserModel.class
 fedbycat/service/ImgService.class
+fedbycat/util/ApiHttp.class
 fedbycat/util/ScheduledTasks.class
 fedbycat/service/UserService.class
 fedbycat/Application.class
