@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,13 +29,11 @@ public class UserServiceImpl implements UserService{
             e.printStackTrace();
         }
 
-
         Object result = userRepository.save(userModel);
         return result instanceof UserModel;
     }
 
     public List<UserModel> queryUserByTime(long timeStamp) {
-        List<UserModel> result = new LinkedList<>();
-        return result;
+        return userRepository.findByGmtSendGreaterThanEqualAndActiveTrue(timeStamp - 86400000);
     }
 }
